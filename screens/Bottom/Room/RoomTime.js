@@ -14,17 +14,17 @@ export default function Calendar() {
                 selected={Date.now()}
                 showClosingKnob={true}
                 theme={{
-                  agendaDayTextColor: 'darkorange',
-                  agendaDayNumColor: '#3c3c3c',
-                  agendaKnobColor: 'lightgrey',
-                  backgroundColor: '#fffbed',
-                  monthTextColor: 'darkorange',
-                  textSectionTitleColor: 'darkorange',
-                  dayTextColor: '#5d6e1e',
-                  selectedDayBackgroundColor: 'darkorange',
-                  todayTextColor: 'red',
-                  dotColor: '#FF4500',
-                  selectedDotColor: '#FF4500',
+                    agendaDayTextColor: 'darkorange',
+                    agendaDayNumColor: '#3c3c3c',
+                    agendaKnobColor: 'lightgrey',
+                    backgroundColor: '#fffbed',
+                    monthTextColor: 'darkorange',
+                    textSectionTitleColor: 'darkorange',
+                    dayTextColor: '#5d6e1e',
+                    selectedDayBackgroundColor: 'darkorange',
+                    todayTextColor: 'red',
+                    dotColor: '#FF4500',
+                    selectedDotColor: '#FF4500',
                 }}
                 />
             </View>
@@ -42,11 +42,11 @@ export default function Calendar() {
                 <Image source={require('../../assets/Calendar.png')} style={styles.btnCalendar} />
                 </TouchableOpacity>
                 <TouchableOpacity 
-                onPress={() => navigation.navigate('Problem')} >
+                onPress={() => navigation.navigate('Notification')} >
                 <Image source={require('../../assets/Notification.png')} style={styles.btnNoti} />
                 </TouchableOpacity>
                 <TouchableOpacity
-                onPress={() => navigation.navigate('Notification')} >
+                onPress={() => navigation.navigate('Problem')} >
                 <Image source={require('../../assets/Problem.png')} style={styles.btnProblem} />
                 </TouchableOpacity>
             </View>

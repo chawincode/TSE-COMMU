@@ -36,11 +36,11 @@ export default function Problem() {
                   <Image source={require('../../assets/Calendar.png')} style={styles.btnCalendar} />
                   </TouchableOpacity>
                   <TouchableOpacity 
-                  onPress={() => navigation.navigate('Notification')} >
+                  onPress={() => navigation.navigate('Problem')} >
                   <Image source={require('../../assets/Notification.png')} style={styles.btnNoti} />
                   </TouchableOpacity>
                   <TouchableOpacity
-                  onPress={() => navigation.navigate('Problem')} >
+                  onPress={() => navigation.navigate('Notification')} >
                   <Image source={require('../../assets/Problem.png')} style={styles.btnProblem} />
                   </TouchableOpacity>
               </View>

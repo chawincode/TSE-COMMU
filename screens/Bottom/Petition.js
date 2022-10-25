@@ -123,11 +123,11 @@ export default function Petition() {
                     <Image source={require('../../assets/Calendar.png')} style={styles.btnCalendar} />
                     </TouchableOpacity>
                     <TouchableOpacity 
-                    onPress={() => navigation.navigate('Notification')} >
+                    onPress={() => navigation.navigate('Problem')} >
                     <Image source={require('../../assets/Notification.png')} style={styles.btnNoti} />
                     </TouchableOpacity>
                     <TouchableOpacity
-                    onPress={() => navigation.navigate('Problem')} >
+                    onPress={() => navigation.navigate('Notification')} >
                     <Image source={require('../../assets/Problem.png')} style={styles.btnProblem} />
                     </TouchableOpacity>
                 </View>
@@ -153,11 +153,6 @@ const styles = StyleSheet.create({
     textInput: {
         alignSelf: 'center',
         flexDirection: 'row',
-        fontSize: 15,
-        color: '#DF2525',
-        height: 35,
-        marginLeft: 50,
-        marginRight: 50,
         marginBottom: 12,
         marginTop: 20,
         borderColor: '#DF2525',
@@ -177,7 +172,7 @@ const styles = StyleSheet.create({
     },
     dropdown1BtnStyle: {
         width: '90%',
-        height: 35,
+        height: 40,
         borderRadius: 10,
         borderWidth: 2,
         borderColor: '#DF2525',
