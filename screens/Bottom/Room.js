@@ -11,28 +11,6 @@ export default function Room() {
                 <Text style={styles.textRoom}>
                     EXPLORE SPACE
                 </Text>
-                <View style={styles.bottomView}>
-                    <TouchableOpacity
-                    onPress={() => navigation.navigate('Room')} >
-                    <Image source={require('../../assets/Room.png')} style={styles.btnRoom} />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{borderRadius: 10, borderColor: 'black'}}
-                    onPress={() => navigation.navigate('Petition')} >
-                    <Image source={require('../../assets/Petition.png')} style={styles.btnPetition} />
-                    </TouchableOpacity>
-                    <TouchableOpacity 
-                    onPress={() => navigation.navigate('Calendar')} >
-                    <Image source={require('../../assets/Calendar.png')} style={styles.btnCalendar} />
-                    </TouchableOpacity>
-                    <TouchableOpacity 
-                    onPress={() => navigation.navigate('Problem')} >
-                    <Image source={require('../../assets/Notification.png')} style={styles.btnNoti} />
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                    onPress={() => navigation.navigate('Notification')} >
-                    <Image source={require('../../assets/Problem.png')} style={styles.btnProblem} />
-                    </TouchableOpacity>
-                </View>
             </ImageBackground>
         </View>
     )

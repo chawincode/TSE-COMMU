@@ -83,7 +83,7 @@ const Register = () => {
                     >
                         <Text style={{color: "white", fontSize: 10}}>FORGOT PASSWORD?</Text>
                 </TouchableOpacity> */}
-                <TouchableOpacity onPress = {() => navigation.navigate('Room', {}) } style={styles.button}>
+                <TouchableOpacity onPress = {() => navigation.navigate('Root', {}) } style={styles.button}>
                     <Text style={styles.buttonLogin}>
                         SIGN IN
                     </Text>

@@ -144,7 +144,7 @@ const Register = () => {
                     }}
                     />
                 </View>
-                <TouchableOpacity onPress = {() => navigation.navigate('Room', {}) } style={styles.button}>
+                <TouchableOpacity onPress = {() => navigation.navigate('Root', {}) } style={styles.button}>
                     <Text style={styles.btnRegister}>
                         SIGN UP
                     </Text>
