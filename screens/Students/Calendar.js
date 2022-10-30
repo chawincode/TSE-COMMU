@@ -1,6 +1,6 @@
 import { Agenda } from 'react-native-calendars';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { View, ImageBackground, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, ImageBackground, StyleSheet, TouchableOpacity, Image, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const image = require('../../assets/Background.jpg')
@@ -10,7 +10,7 @@ export default function Calendar() {
     return(
         <ImageBackground source={image} resizeMode="cover" style={styles.image} >
           <View style={{flex: 1}}>
-            <Agenda
+            {/* <Agenda
             selected={Date.now()}
             showClosingKnob={true}
             theme={{
@@ -26,7 +26,10 @@ export default function Calendar() {
               dotColor: '#FF4500',
               selectedDotColor: '#FF4500',
             }}
-            />
+            /> */}
+            <Text>
+              Insert calendars heer
+            </Text>
           </View>
         </ImageBackground>
     )

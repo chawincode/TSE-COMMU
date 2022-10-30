@@ -8,12 +8,15 @@ import { Image, StyleSheet } from 'react-native';
 const Page = createNativeStackNavigator();
 const Stack = createBottomTabNavigator();
 
+
 function RootNavigator() {
   return (
     <Page.Navigator initialRouteName='Login'>
       <Page.Screen name="Login" component={Login} options={{ headerShown: false }} />
       <Page.Screen name="Register" component={Register} options={{ headerShown: false }} />
-      <Page.Screen name="Root" component={PageStack} options={{ headerShown: false }} />
+      <Page.Screen name="Student" component={StudentStack} options={{ headerShown: false }} />
+      <Page.Screen name="Staff" component={StaffStack} options={{ headerShown: false }} />
+      <Page.Screen name="Store" component={StoreStack} options={{ headerShown: false }} />
     </Page.Navigator>
   );
 }
@@ -21,16 +24,16 @@ function RootNavigator() {
 import Login from '../screens/Login';
 import Register from '../screens/Register';
 import Home from '../screens/Home';
-import Room from '../screens/Bottom/Room';
-import Petition from '../screens/Bottom/Petition';
-import Calendar from '../screens/Bottom/Calendar';
-import Notification from '../screens/Bottom/Notification';
-import Problem from '../screens/Bottom/Problem';
-import Covid from '../screens/Bottom/Problem/Covid';
-import Officer from '../screens/Bottom/Problem/Officer';
+import Room from '../screens/Students/Room';
+import Petition from '../screens/Students/Petition';
+import Calendar from '../screens/Students/Calendar';
+import Notification from '../screens/Students/Notifications';
+import Problem from '../screens/Students/Problems';
+import Covid from '../screens/Students/Notifications/Covid';
+import Officer from '../screens/Students/Notifications/Officer';
 import { Button } from 'react-native';
 
-function PageStack() {
+function StudentStack() {
   const navigation = useNavigation();
   return (
     <Stack.Navigator 
@@ -44,7 +47,7 @@ function PageStack() {
           fontWeight: 'bold',
         }, 
         tabBarInactiveBackgroundColor:  '#FFBD59',
-        tabBarActiveBackgroundColor: '#FFBD59',
+        tabBarActiveBackgroundColor: 'darkorange',
         tabBarShowLabel: false,
         tabBarIcon: ({ image, focused }) => {
           if (route.name == 'Room') {
@@ -110,6 +113,168 @@ function PageStack() {
         component={Officer}
         options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center',tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('Notification')} title="back"/>)}} 
       />  
+      <Stack.Screen 
+        name="Problem" 
+        component={Problem}
+        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+      />
+    </Stack.Navigator>
+  )
+}
+
+import PetitionStaff from '../screens/Staff/Petitionstaff';
+import NotificationStaff from '../screens/Staff/NotificationsStaff';
+import CovidStaff from '../screens/Staff/NotificationsStaff/CovidStaff';
+import OfficerStaff from '../screens/Staff/NotificationsStaff/OfficerStaff';
+import ProblemStaff from '../screens/Staff/ProblemStaff';
+
+function StaffStack() {
+  const navigation = useNavigation();
+  return (
+    <Stack.Navigator 
+      initialRouteName='PetitionStaff'
+      screenOptions={({ route, }) => ({
+        headerStyle: {
+          backgroundColor: '#FFFFFF'
+        },
+        headerTintColor: '#DF2525',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        }, 
+        tabBarInactiveBackgroundColor:  '#FFBD59',
+        tabBarActiveBackgroundColor: 'darkorange',
+        tabBarShowLabel: false,
+        tabBarIcon: ({ image, focused }) => {
+          if (route.name == 'Room') {
+            image = focused ? require('../assets/Room.png') : require('../assets/Room.png')
+            return (
+              <Image source={image} style={styles.btnRoom} />
+            )
+          }
+          if (route.name == 'PetitionStaff') {
+            image = focused ? require('../assets/Petition.png') : require('../assets/Petition.png')
+            return (
+              <Image source={image} style={styles.btnPetition} />
+            )
+          }
+          if (route.name == 'Calendar') {
+            image = focused ? require('../assets/Calendar.png') : require('../assets/Calendar.png')
+            return (
+              <Image source={image} style={styles.btnCalendar} />
+            )
+          }
+          if (route.name == 'NotificationStaff') {
+            image = focused ? require('../assets/Notification.png') : require('../assets/Notification.png')
+            return (
+              <Image source={image} style={styles.btnNoti} />
+            )
+          }
+          if (route.name == 'ProblemStaff') {
+            image = focused ? require('../assets/Problem.png') : require('../assets/Problem.png')
+            return (
+              <Image source={image} style={styles.btnProblem} />
+            )
+          }
+        },
+      })}
+    >
+      <Stack.Screen 
+        name="Room" 
+        component={Room}
+        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+      />
+      <Stack.Screen 
+        name="PetitionStaff" 
+        component={PetitionStaff}
+        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+      />
+      <Stack.Screen 
+        name="Calendar" 
+        component={Calendar}
+        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+      />
+      <Stack.Screen 
+        name="NotificationStaff" 
+        component={NotificationStaff}
+        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+      />
+      <Stack.Screen 
+        name="CovidStaff" 
+        component={CovidStaff}
+        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center', tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('Notification')} title="back"/>)}} 
+      />
+      <Stack.Screen 
+        name="OfficerStaff" 
+        component={OfficerStaff}
+        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center',tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('Notification')} title="back"/>)}} 
+      />  
+      <Stack.Screen 
+        name="ProblemStaff" 
+        component={ProblemStaff}
+        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+      />
+    </Stack.Navigator>
+  )
+}
+
+function StoreStack() {
+  const navigation = useNavigation();
+  return (
+    <Stack.Navigator 
+      initialRouteName='Calendar'
+      screenOptions={({ route, }) => ({
+        headerStyle: {
+          backgroundColor: '#FFFFFF'
+        },
+        headerTintColor: '#DF2525',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        }, 
+        tabBarInactiveBackgroundColor:  '#FFBD59',
+        tabBarActiveBackgroundColor: 'darkorange',
+        tabBarShowLabel: false,
+        tabBarIcon: ({ image, focused }) => {
+          if (route.name == 'Calendar') {
+            image = focused ? require('../assets/Calendar.png') : require('../assets/Calendar.png')
+            return (
+              <Image source={image} style={styles.btnCalendar} />
+            )
+          }
+          if (route.name == 'Notification') {
+            image = focused ? require('../assets/Notification.png') : require('../assets/Notification.png')
+            return (
+              <Image source={image} style={styles.btnNoti} />
+            )
+          }
+          if (route.name == 'Problem') {
+            image = focused ? require('../assets/Problem.png') : require('../assets/Problem.png')
+            return (
+              <Image source={image} style={styles.btnProblem} />
+            )
+          }
+        },
+      })}
+    >
+      <Stack.Screen 
+        name="Notification" 
+        component={Notification}
+        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+      />
+      <Stack.Screen 
+        name="Covid" 
+        component={Covid}
+        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center', tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('Notification')} title="back"/>)}} 
+      />
+      <Stack.Screen 
+        name="Officer" 
+        component={Officer}
+        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center',tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('Notification')} title="back"/>)}} 
+      />  
+      <Stack.Screen 
+        name="Calendar" 
+        component={Calendar}
+        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+      />
       <Stack.Screen 
         name="Problem" 
         component={Problem}

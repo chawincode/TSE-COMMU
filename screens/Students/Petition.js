@@ -6,9 +6,10 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
+  Dimensions
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { TextInput } from "react-native-gesture-handler";
+import { ScrollView, TextInput } from "react-native-gesture-handler";
 import SelectDropdown from "react-native-select-dropdown";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
@@ -18,6 +19,9 @@ import { useNavigation } from "@react-navigation/native";
 const image = require("../../assets/Background.jpg");
 const metier = ["1", "2", "summer"];
 const course = ["SF341", "SF333", "SF327"];
+
+const {height: SCREEN_HEIGHT} = Dimensions.get('window');
+const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
 export default function Petition() {
   const navigation = useNavigation();
@@ -114,7 +118,7 @@ export default function Petition() {
           />
         </View>
         <TouchableOpacity
-          style={{ alignSelf: "flex-end", marginRight: 10 }}
+          style={{ alignSelf: "flex-end" }}
           onPress={() => navigation.navigate("Problem")}
         >
           <Image
@@ -130,6 +134,7 @@ export default function Petition() {
 const styles = StyleSheet.create({
   view: {
     flex: 1,
+    height: SCREEN_HEIGHT
   },
   image: {
     flex: 1,
