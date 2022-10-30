@@ -1,17 +1,38 @@
-import React from "react";
+import React, {useState, useEffect, useCallback}from "react";
 import { ImageBackground, View, Text, StyleSheet } from "react-native";
+import {GiftedChat} from 'react-native-gifted-chat';
 
 const image = require('../../../assets/Background.jpg')
 
 export default function Officer() {
+    const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    setMessages([
+      {
+        _id: 1,
+        text: 'Can I help you ?',
+        createdAt: new Date(),
+        user: {
+          _id: 2,
+          name: 'React Native',
+          avatar: 'https://cdn.pixabay.com/photo/2013/07/13/13/38/man-161282_960_720.png',
+        },
+      },
+    ])
+  }, [])
+
+  const onSend = useCallback((messages = []) => {
+    setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
+  }, [])
     return (
-        <View style={styles.view}>
-            <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-                <Text style={styles.text}>
-                    OFFICER
-                </Text>
-            </ImageBackground>
-        </View>
+        <GiftedChat
+        messages={messages}
+        onSend={messages => onSend(messages)}
+        user={{
+          _id: 1,
+        }}
+      />
     )
 }
 
