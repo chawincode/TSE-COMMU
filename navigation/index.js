@@ -201,12 +201,12 @@ function StaffStack() {
       <Stack.Screen 
         name="CovidStaff" 
         component={CovidStaff}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center', tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('Notification')} title="back"/>)}} 
+        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center', tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('NotificationStaff')} title="back"/>)}} 
       />
       <Stack.Screen 
         name="OfficerStaff" 
         component={OfficerStaff}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center',tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('Notification')} title="back"/>)}} 
+        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center',tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('NotificationStaff')} title="back"/>)}} 
       />  
       <Stack.Screen 
         name="ProblemStaff" 

@@ -13,11 +13,11 @@ export default function Notification() {
             HELP
           </Text>
           <View style={styles.viewButton}>
-            <TouchableOpacity onPress={() => navigation.navigate('Covid')} >
+            <TouchableOpacity onPress={() => navigation.navigate('CovidStaff')} >
               <Image source={require('../../../assets/Problem/Covid.png')} style={styles.btn} />
               <Text style={{alignSelf: 'center'}}>COVID-19</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Officer')} >
+            <TouchableOpacity onPress={() => navigation.navigate('OfficerStaff')} >
               <Image source={require('../../../assets/Problem/Officer.png')} style={styles.btn} />
               <Text style={{alignSelf: 'center', marginBottom: 100}}>CONTACT STAFF</Text>
             </TouchableOpacity>
