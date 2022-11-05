@@ -3,14 +3,14 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { View, ImageBackground, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const image = require('../../assets/Background.jpg')
+const image = require('../assets/Background.jpg')
 
 export default function Calendar() {
     const navigation = useNavigation();
     return(
         <ImageBackground source={image} resizeMode="cover" style={styles.image} >
             <View style={{flex: 1}}>
-                <Agenda
+                {/* <Agenda
                 selected={Date.now()}
                 showClosingKnob={true}
                 theme={{
@@ -26,29 +26,7 @@ export default function Calendar() {
                     dotColor: '#FF4500',
                     selectedDotColor: '#FF4500',
                 }}
-                />
-            </View>
-            <View style={styles.bottomView}>
-                <TouchableOpacity
-                onPress={() => navigation.navigate('Room')} >
-                <Image source={require('../../assets/Room.png')} style={styles.btnRoom} />
-                </TouchableOpacity>
-                <TouchableOpacity style={{borderRadius: 10, borderColor: 'black'}}
-                onPress={() => navigation.navigate('Petition')} >
-                <Image source={require('../../assets/Petition.png')} style={styles.btnPetition} />
-                </TouchableOpacity>
-                <TouchableOpacity 
-                onPress={() => navigation.navigate('Calendar')} >
-                <Image source={require('../../assets/Calendar.png')} style={styles.btnCalendar} />
-                </TouchableOpacity>
-                <TouchableOpacity 
-                onPress={() => navigation.navigate('Notification')} >
-                <Image source={require('../../assets/Notification.png')} style={styles.btnNoti} />
-                </TouchableOpacity>
-                <TouchableOpacity
-                onPress={() => navigation.navigate('Problem')} >
-                <Image source={require('../../assets/Problem.png')} style={styles.btnProblem} />
-                </TouchableOpacity>
+                /> */}
             </View>
         </ImageBackground>
     )

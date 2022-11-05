@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { Fragment } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -32,10 +32,13 @@ import Problem from '../screens/Students/Problems';
 import Covid from '../screens/Students/Notifications/Covid';
 import Officer from '../screens/Students/Notifications/Officer';
 import { Button } from 'react-native';
+import Header from '../screens/Header';
 
 function StudentStack() {
   const navigation = useNavigation();
   return (
+    <Fragment>
+      <Header />
     <Stack.Navigator 
       initialRouteName='Room'
       screenOptions={({ route, }) => ({
@@ -86,39 +89,45 @@ function StudentStack() {
       <Stack.Screen 
         name="Room" 
         component={Room}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
       />
+      <Stack.Screen 
+        name="RoomTime" 
+        component={RoomTime}
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center',tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('Room')} title="back"/>)}} 
+      /> 
       <Stack.Screen 
         name="Petition" 
         component={Petition}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
       />
       <Stack.Screen 
         name="Calendar" 
         component={Calendar}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
       />
       <Stack.Screen 
         name="Notification" 
         component={Notification}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
       />
       <Stack.Screen 
         name="Covid" 
         component={Covid}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center', tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('Notification')} title="back"/>)}} 
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center', tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('Notification')} title="back"/>)}} 
       />
       <Stack.Screen 
         name="Officer" 
         component={Officer}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center',tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('Notification')} title="back"/>)}} 
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center',tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('Notification')} title="back"/>)}} 
       />  
       <Stack.Screen 
         name="Problem" 
         component={Problem}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
       />
     </Stack.Navigator>
+    </Fragment>
   )
 }
 
@@ -127,10 +136,13 @@ import NotificationStaff from '../screens/Staff/NotificationsStaff';
 import CovidStaff from '../screens/Staff/NotificationsStaff/CovidStaff';
 import OfficerStaff from '../screens/Staff/NotificationsStaff/OfficerStaff';
 import ProblemStaff from '../screens/Staff/ProblemStaff';
+import RoomTime from '../screens/RoomTime';
 
 function StaffStack() {
   const navigation = useNavigation();
   return (
+    <Fragment>
+      <Header />
     <Stack.Navigator 
       initialRouteName='PetitionStaff'
       screenOptions={({ route, }) => ({
@@ -181,45 +193,53 @@ function StaffStack() {
       <Stack.Screen 
         name="Room" 
         component={Room}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
       />
+      <Stack.Screen 
+        name="RoomTime" 
+        component={RoomTime}
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center',tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('Room')} title="back"/>)}} 
+      /> 
       <Stack.Screen 
         name="PetitionStaff" 
         component={PetitionStaff}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
       />
       <Stack.Screen 
         name="Calendar" 
         component={Calendar}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
       />
       <Stack.Screen 
         name="NotificationStaff" 
         component={NotificationStaff}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
       />
       <Stack.Screen 
         name="CovidStaff" 
         component={CovidStaff}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center', tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('NotificationStaff')} title="back"/>)}} 
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center', tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('NotificationStaff')} title="back"/>)}} 
       />
       <Stack.Screen 
         name="OfficerStaff" 
         component={OfficerStaff}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center',tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('NotificationStaff')} title="back"/>)}} 
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center',tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('NotificationStaff')} title="back"/>)}} 
       />  
       <Stack.Screen 
         name="ProblemStaff" 
         component={ProblemStaff}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
       />
     </Stack.Navigator>
+    </Fragment>
   )
 }
 
 function StoreStack() {
   const navigation = useNavigation();
   return (
+    <Fragment>
+      <Header />
     <Stack.Navigator 
       initialRouteName='Calendar'
       screenOptions={({ route, }) => ({
@@ -258,29 +278,30 @@ function StoreStack() {
       <Stack.Screen 
         name="Notification" 
         component={Notification}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
       />
       <Stack.Screen 
         name="Covid" 
         component={Covid}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center', tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('Notification')} title="back"/>)}} 
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center', tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('Notification')} title="back"/>)}} 
       />
       <Stack.Screen 
         name="Officer" 
         component={Officer}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center',tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('Notification')} title="back"/>)}} 
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center',tabBarButton: () => null, headerLeft: () => (<Button onPress={() => navigation.navigate('Notification')} title="back"/>)}} 
       />  
       <Stack.Screen 
         name="Calendar" 
         component={Calendar}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
       />
       <Stack.Screen 
         name="Problem" 
         component={Problem}
-        options={{headerShown:true, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
+        options={{headerShown:false, title: 'TSE COMMU', headerTitleAlign: 'center'}} 
       />
     </Stack.Navigator>
+    </Fragment>
   )
 }
 
