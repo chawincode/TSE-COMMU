@@ -58,7 +58,7 @@ const Schedule = () => {
   const renderItem = (item) => {
     return (
       <TouchableOpacity style={{marginRight: 10, marginTop: 17 ,top: 12}}>
-        <Card style={{backgroundColor: 'black'}}>
+        <Card style={{backgroundColor: '#FDEED2'}}>
           <Card.Content>
             <View
               style={{
@@ -66,7 +66,7 @@ const Schedule = () => {
                 justifyContent: 'space-between',
                 alignItems: 'center',
               }}>
-              <Text style={{color: 'red'}}>{item.events}</Text>
+              <Text>{item.events}</Text>
             </View>
           </Card.Content>
         </Card>
