@@ -1,13 +1,13 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useNavigation } from '@react-navigation/native';
 import { Image, StyleSheet } from 'react-native';
+import { useFonts } from 'expo-font';
 
 const Page = createNativeStackNavigator();
 const Stack = createBottomTabNavigator();
-
 
 function RootNavigator() {
   return (
@@ -23,7 +23,6 @@ function RootNavigator() {
 
 import Login from '../screens/Login';
 import Register from '../screens/Register';
-import Home from '../screens/Home';
 import Room from '../screens/Students/Room';
 import Petition from '../screens/Students/Petition';
 import Calendar from '../screens/Students/Calendar';
@@ -50,7 +49,7 @@ function StudentStack() {
           fontWeight: 'bold',
         }, 
         tabBarInactiveBackgroundColor:  '#FFBD59',
-        tabBarActiveBackgroundColor: 'darkorange',
+        tabBarActiveBackgroundColor: '#FFBD59',
         tabBarShowLabel: false,
         tabBarIcon: ({ image, focused }) => {
           if (route.name == 'Room') {
@@ -154,7 +153,7 @@ function StaffStack() {
           fontWeight: 'bold',
         }, 
         tabBarInactiveBackgroundColor:  '#FFBD59',
-        tabBarActiveBackgroundColor: 'darkorange',
+        tabBarActiveBackgroundColor: '#FFBD59',
         tabBarShowLabel: false,
         tabBarIcon: ({ image, focused }) => {
           if (route.name == 'Room') {
@@ -251,7 +250,7 @@ function StoreStack() {
           fontWeight: 'bold',
         }, 
         tabBarInactiveBackgroundColor:  '#FFBD59',
-        tabBarActiveBackgroundColor: 'darkorange',
+        tabBarActiveBackgroundColor: '#FFBD59',
         tabBarShowLabel: false,
         tabBarIcon: ({ image, focused }) => {
           if (route.name == 'Calendar') {

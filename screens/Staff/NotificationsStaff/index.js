@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     fontSize: 20,
     marginTop: 40,
-    marginLeft: 20
+    marginLeft: 20,
+    fontFamily: 'AbhayaLibre-Medium',
   },
   viewButton: {
     alignSelf: 'center'

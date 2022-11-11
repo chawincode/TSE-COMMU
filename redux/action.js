@@ -6,3 +6,12 @@ export const setJob = job => dispatch => {
         payload: job,
     });
 };
+
+export const SET_ROOM = {};
+
+export const setRoom = room => dispatch => {
+    dispatch({
+        type: SET_ROOM,
+        payload: room,
+    });
+};

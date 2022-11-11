@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ImageBackground,
   View,
@@ -13,18 +13,46 @@ import { ScrollView, TextInput } from "react-native-gesture-handler";
 import SelectDropdown from "react-native-select-dropdown";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
-
-
+import { doc, setDoc, collection, addDoc } from 'firebase/firestore'
+import { db } from "../../database/firebaseDb";
 
 const image = require("../../assets/Background.jpg");
 const metier = ["1", "2", "summer"];
-const course = ["SF341", "SF333", "SF327"];
+const courseData = ["SF341", "SF333", "SF327"];
 
 const {height: SCREEN_HEIGHT} = Dimensions.get('window');
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
 export default function Petition() {
   const navigation = useNavigation();
+  const [sub, setSub] = useState("");
+  const [term, setTerm] = useState("");
+  const [course, setCourse] = useState("");
+  const [des, setDes] = useState("");
+
+  const create = async() => {
+    // await setDoc(doc(db, "PETITION", "pXHZG3zVsBSYWcMFOjAu"), {
+    //   course: course,
+    //   // des: des,
+    //   // subject: sub,
+    //   term: term
+    // }).then(() => {
+    //   console.log('data submitted');
+    // }).catch((error) => {
+    //   console.log(error);
+    // })
+    await addDoc(collection(db, "PETITION"), {
+      course: course,
+      des: des,
+      subject: sub,
+      term: term
+    }).then(() => {
+      console.log('data submitted');
+    }).catch((error) => {
+      console.log(error);
+    })
+  }
+
   return (
     <View style={styles.view}>
       <ImageBackground source={image} resizeMode="cover" style={styles.image}>
@@ -39,12 +67,14 @@ export default function Petition() {
             placeholderTextColor={"lightgrey"}
             paddingLeft={10}
             style={styles.subject}
+            onChangeText={(textValue) => setSub(textValue)}
           />
         </View>
         <SelectDropdown
           data={metier}
           onSelect={(selectedItem, index) => {
             console.log(selectedItem, index);
+            setTerm(selectedItem);
           }}
           defaultButtonText={" "}
           buttonTextAfterSelection={(selectedItem, index) => {
@@ -68,17 +98,12 @@ export default function Petition() {
           dropdownStyle={styles.dropdown1DropdownStyle}
           rowTextStyle={styles.dropdown1RowTxtStyle}
           selectedRowStyle={styles.dropdown1SelectedRowStyle}
-          search
-          searchInputStyle={styles.dropdown1searchInputStyleStyle}
-          searchPlaceHolderColor={"darkgrey"}
-          renderSearchInputLeftIcon={() => {
-            return <FontAwesome name={"search"} color={"#C1C1C1"} size={18} />;
-          }}
         />
         <SelectDropdown
-          data={course}
+          data={courseData}
           onSelect={(selectedItem, index) => {
             console.log(selectedItem, index);
+            setCourse(selectedItem);
           }}
           defaultButtonText={" "}
           buttonTextAfterSelection={(selectedItem, index) => {
@@ -102,12 +127,6 @@ export default function Petition() {
           rowStyle={styles.dropdown1RowStyle}
           rowTextStyle={styles.dropdown1RowTxtStyle}
           selectedRowStyle={styles.dropdown1SelectedRowStyle}
-          search
-          searchInputStyle={styles.dropdown1searchInputStyleStyle}
-          searchPlaceHolderColor={"darkgrey"}
-          renderSearchInputLeftIcon={() => {
-            return <FontAwesome name={"search"} color={"#C1C1C1"} size={18} />;
-          }}
         />
         <View style={styles.Description}>
           <TextInput
@@ -115,11 +134,13 @@ export default function Petition() {
             placeholderTextColor={"lightgrey"}
             paddingLeft={10}
             style={styles.textInputDescription}
+            onChangeText={(textValue) => setDes(textValue)}
+            multiline={true}
           />
         </View>
         <TouchableOpacity
-          style={{ alignSelf: "flex-end" }}
-          onPress={() => navigation.navigate("Problem")}
+          style={{ alignItems: 'flex-end' }}
+          onPress={create}
         >
           <Image
             source={require("../../assets/Sent.png")}
@@ -150,6 +171,7 @@ const styles = StyleSheet.create({
     fontStyle: "normal",
     lineHeight: 20,
     color: "#100F0F",
+    fontFamily: 'AbhayaLibre-Medium',
   },
   textSub: {
     position: "absolute",
@@ -162,6 +184,7 @@ const styles = StyleSheet.create({
     fontStyle: "normal",
     lineHeight: 20,
     color: "#100F0F",
+    fontFamily: 'AbhayaLibre-Medium',
   },
   textTerm: {
     position: "absolute",
@@ -174,6 +197,7 @@ const styles = StyleSheet.create({
     fontStyle: "normal",
     lineHeight: 20,
     color: "#100F0F",
+    fontFamily: 'AbhayaLibre-Medium',
   },
   textCourse: {
     position: "absolute",
@@ -186,6 +210,7 @@ const styles = StyleSheet.create({
     fontStyle: "normal",
     lineHeight: 20,
     color: "#100F0F",
+    fontFamily: 'AbhayaLibre-Medium',
   },
   textDes: {
     position: "absolute",
@@ -198,6 +223,7 @@ const styles = StyleSheet.create({
     fontStyle: "normal",
     lineHeight: 20,
     color: "#100F0F",
+    fontFamily: 'AbhayaLibre-Medium',
   },
   textInput: {
     position: "absolute",
@@ -258,7 +284,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 1,
   },
-
+  dropdown1DropdownStyle: {backgroundColor: '#EFEFEF', borderRadius: 10},
   dropdown1RowTxtStyle: { color: "#444" },
   dropdown1SelectedRowStyle: { backgroundColor: "#B3B3B3" },
   dropdown1searchInputStyleStyle: {
@@ -292,8 +318,10 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
   },
   btnSent: {
-    left: -50,
+    width: 97,
+    height: 41,
     top: 570,
+    marginRight: 20
   },
   bottomView: {
     top: 670,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ImageBackground } from "react-native";
 import { TextInput } from 'react-native-gesture-handler';
@@ -8,6 +8,7 @@ import SelectDropdown from 'react-native-select-dropdown';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useSelector, useDispatch } from 'react-redux';
 import { setJob } from '../redux/action';
+import { useFonts } from 'expo-font';
 // import { auth } from '../firebase';
 
 const metier = ["Student", "Staff", "Store"]
@@ -30,6 +31,7 @@ const Register = () => {
             })
             .catch(error => alert(error.message))
     }
+    
     return (
         <SafeAreaView style={styles.container}>
             <ImageBackground source={image} resizeMode="cover" style={styles.image}>
@@ -163,15 +165,15 @@ const styles = StyleSheet.create({
         borderRadius: 10
     },
     buttonLogin: {
-        fontSize: 15,
+        fontSize: 18,
         color: '#FFFFFF',
-        fontWeight: 'bold',
+        fontFamily: 'AbhayaLibre-Bold',
     },
     btnRegister: {
         fontSize: 15,
         color: '#7B7B7B',
-        marginTop: 10,
-        fontWeight: 'bold',
+        marginTop: 13,
+        fontFamily: 'AbhayaLibre-Bold',
     },
     password: {
         alignSelf: 'stretch',
@@ -197,24 +199,24 @@ const styles = StyleSheet.create({
     tse: {
         alignItems: 'center',
         color: '#DF2525',
-        fontSize: 32,
-        fontWeight: 'bold',
+        fontSize: 35,
         marginBottom: 10,
+        fontFamily: 'AbhayaLibre-Bold',
     },
     commu: {
         alignItems: 'center',
         marginBottom: -150,
         color: 'orange',
-        fontSize: 32,
-        fontWeight: 'bold',
+        fontSize: 35,
+        fontFamily: 'AbhayaLibre-Bold',
     },
     thammasat: {
         alignItems: 'center',
         color: '#DF2525',
-        fontSize: 15,
-        fontWeight: 'bold',
+        fontSize: 17,
         marginBottom: 10,
-        marginTop: -15
+        marginTop: -15,
+        fontFamily: 'AbhayaLibre-Bold',
     },
     image: {
         flex: 1,

@@ -144,7 +144,7 @@ const Register = () => {
                     }}
                     />
                 </View>
-                <TouchableOpacity onPress = {() => navigation.navigate('Root', {}) } style={styles.button}>
+                <TouchableOpacity onPress = {() => navigation.navigate('Login', {}) } style={styles.button}>
                     <Text style={styles.btnRegister}>
                         SIGN UP
                     </Text>
@@ -191,18 +191,15 @@ const styles = StyleSheet.create({
         borderRadius: 10
     },
     btnRegister: {
-        fontSize: 15,
+        fontSize: 18,
         color: '#ffffff',
-        fontWeight: 'bold',
-    },
-    buttonLogin:{
-        position: 'absolute'
+        fontFamily: 'AbhayaLibre-Bold',
     },
     btnLogin: {
-        fontSize: 15,
+        fontSize: 18,
         color: '#7B7B7B',
         marginTop: 10,
-        fontWeight: 'bold',
+        fontFamily: 'AbhayaLibre-Bold',
     },
     password: {
         alignSelf: 'stretch',
@@ -237,22 +234,22 @@ const styles = StyleSheet.create({
     tse: {
         alignItems: 'center',
         color: '#DF2525',
-        fontSize: 32,
-        fontWeight: 'bold',
+        fontSize: 35,
+        fontFamily: 'AbhayaLibre-Bold',
         marginBottom: 10,
     },
     commu: {
         alignItems: 'center',
         marginBottom: -150,
         color: 'orange',
-        fontSize: 32,
-        fontWeight: 'bold',
+        fontSize: 35,
+        fontFamily: 'AbhayaLibre-Bold',
     },
     thammasat: {
         alignItems: 'center',
         color: '#DF2525',
-        fontSize: 15,
-        fontWeight: 'bold',
+        fontSize: 17,
+        fontFamily: 'AbhayaLibre-Bold',
         marginBottom: 10,
         marginTop: -15
     },

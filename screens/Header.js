@@ -14,10 +14,10 @@ export default function App() {
   return (
     <SafeAreaView style={{flex: 0.065, marginTop: 20}}>
         <ImageBackground source={HeadImage} style={styles.image}>
-            <Text style={{alignSelf: 'center', fontWeight: 'bold', color: '#9D0202', fontSize: 20}}>
+            <Text style={{alignSelf: 'center', color: '#9D0202', fontSize: 20, fontFamily: 'AbhayaLibre-Bold'}}>
                 TSE COMMU
             </Text>
-            <Text style={{alignSelf: 'center', color: '#9D0202', fontSize: 14}}>
+            <Text style={{alignSelf: 'center', color: '#9D0202', fontSize: 14, fontFamily: 'AbhayaLibre-Medium',}}>
                 THAMMASAT UNIVERSITY
             </Text>
         </ImageBackground>
