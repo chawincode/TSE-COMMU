@@ -17,8 +17,6 @@ import { collection, getDocs } from 'firebase/firestore'
 import { db } from "../../database/firebaseDb";
 
 const image = require("../../assets/Background.jpg");
-const metier = ["1", "2", "summer"];
-const course = ["SF341", "SF333", "SF327"];
 
 export default function Petition() {
   const [items, setItems] = useState([]);
